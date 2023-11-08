@@ -1,0 +1,19 @@
+{
+  "information": [
+    {
+      "description": "Full Stack Developer",
+      "icon": "briefcase",
+      "id": 1
+    },
+    {
+      "description": "Tegucigalpa, Honduras",
+      "icon": "home",
+      "id": 2
+    },
+    {
+      "description": "jmmwork@protonmail.com",
+      "icon": "envelope",
+      "id": 3
+    }
+  ]
+}

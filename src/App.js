@@ -1,8 +1,11 @@
 import "./App.css";
 import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
+import Info from "./components/ContainerInformation";
 
 function App() {
+  const url = "http://localhost:5000/";
+
   return (
     <div className="w3-light-grey">
       {/* Page Container */}
@@ -11,7 +14,10 @@ function App() {
         <div className="w3-row-padding">
           {/* Left Column */}
           <div className="w3-third">
-            <Photo photo={photo}></Photo>
+            <Photo photo={photo} />
+            <div className="w3-container">
+              <Info url={url} />
+            </div>
           </div>
           <div className="w3-twothird"></div>
         </div>
