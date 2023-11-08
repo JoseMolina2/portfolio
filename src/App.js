@@ -9,6 +9,7 @@ function App() {
   const url = "http://localhost:5000/";
 
   const [information, setInformation] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
     const fetchInformation = async () => {
@@ -17,7 +18,14 @@ function App() {
       setInformation(data);
     };
 
+    const fetchSkills = async () => {
+      const res = await fetch(`${url}skills`);
+      const data = await res.json();
+      setSkills(data);
+    };
+
     fetchInformation();
+    fetchSkills();
   }, [url]);
 
   return (
@@ -31,7 +39,7 @@ function App() {
             <Photo photo={photo} />
             <div className="w3-container">
               <Info information={information} />
-              <Skills />
+              <Skills skills={skills} />
             </div>
           </div>
           <div className="w3-twothird"></div>

@@ -15,5 +15,87 @@
       "icon": "envelope",
       "id": 3
     }
+  ],
+  "skills": [
+    {
+      "description": "Javascript",
+      "level": 90,
+      "id": 1
+    },
+    {
+      "description": "React",
+      "level": 80,
+      "id": 2
+    },
+    {
+      "description": "Vue",
+      "level": 80,
+      "id": 3
+    },
+    {
+      "description": "NodeJS",
+      "level": 70,
+      "id": 4
+    },
+    {
+      "description": "Java",
+      "level": 70,
+      "id": 5
+    },
+    {
+      "description": "C#",
+      "level": 70,
+      "id": 6
+    },
+    {
+      "description": "Docker",
+      "level": 50,
+      "id": 7
+    },
+    {
+      "description": "SQL",
+      "level": 90,
+      "id": 8
+    },
+    {
+      "description": "NOSQL",
+      "level": 50,
+      "id": 9
+    },
+    {
+      "description": "REST API",
+      "level": 70,
+      "id": 10
+    },
+    {
+      "description": "GraphQL",
+      "level": 30,
+      "id": 11
+    },
+    {
+      "description": "Python",
+      "level": 20,
+      "id": 12
+    },
+    {
+      "description": "Git",
+      "level": 90,
+      "id": 13
+    },
+    {
+      "description": "CSS",
+      "level": 90,
+      "id": 14
+    },
+    {
+      "description": "Bootstrap",
+      "level": 70,
+      "id": 15
+    },
+    {
+      "description": "Tailwind",
+      "level": 50,
+      "id": 16
+    }
   ]
 }
