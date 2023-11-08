@@ -1,5 +1,6 @@
 import "./App.css";
-import foto from "./assets/foto.jpg";
+import photo from "./assets/foto.jpg";
+import Photo from "./components/ContainerPhoto";
 
 function App() {
   return (
@@ -10,16 +11,7 @@ function App() {
         <div className="w3-row-padding">
           {/* Left Column */}
           <div className="w3-third">
-            <div
-              id="image-container"
-              className="w3-display-container w3-theme-l4"
-            >
-              <img
-                className="w3-grayscale-min w3-padding-16"
-                src={foto}
-                alt="Avatar"
-              />
-            </div>
+            <Photo photo={photo}></Photo>
           </div>
           <div className="w3-twothird"></div>
         </div>
