@@ -12,3 +12,11 @@ h6 {
 #container {
   max-width: 1400px;
 }
+
+#image-container img {
+  display: block;
+  margin: auto;
+  width: 60%;
+  height: auto;
+  border-radius: 50% 50%;
+}
