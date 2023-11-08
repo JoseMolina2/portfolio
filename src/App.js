@@ -1,10 +1,24 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
 import Info from "./components/ContainerInformation";
+import Skills from "./components/ContainerSkills";
 
 function App() {
   const url = "http://localhost:5000/";
+
+  const [information, setInformation] = useState([]);
+
+  useEffect(() => {
+    const fetchInformation = async () => {
+      const res = await fetch(`${url}information`);
+      const data = await res.json();
+      setInformation(data);
+    };
+
+    fetchInformation();
+  }, [url]);
 
   return (
     <div className="w3-light-grey">
@@ -16,7 +30,8 @@ function App() {
           <div className="w3-third">
             <Photo photo={photo} />
             <div className="w3-container">
-              <Info url={url} />
+              <Info information={information} />
+              <Skills />
             </div>
           </div>
           <div className="w3-twothird"></div>

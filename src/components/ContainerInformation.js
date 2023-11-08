@@ -1,18 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-function ContainerInformation({ url }) {
-  const [information, setInformation] = useState([]);
-
-  useEffect(() => {
-    const fetchInformation = async () => {
-      const res = await fetch(`${url}information`);
-      const data = await res.json();
-      setInformation(data);
-    };
-
-    fetchInformation();
-  }, [url]);
-
+function ContainerInformation({ information }) {
   return (
     <div className="w3-border-bottom w3-border-gray">
       {information.map(({ id, description, icon }) => {
