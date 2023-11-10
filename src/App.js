@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
@@ -54,29 +54,52 @@ function App() {
     fetchAllData();
   }, [url]);
 
-  return (
-    <div className="w3-light-grey">
-      {/* Page Container */}
-      <div id="container" className="w3-content w3-margin-top">
-        {/* The Grid */}
-        <div className="w3-row-padding">
-          {/* Left Column */}
-          <div className="w3-third">
-            <Photo photo={photo} />
-            <div className="w3-container">
-              <Info information={information} />
-              <Skills skills={skills} />
-              <Languages languages={languages} />
-            </div>
-          </div>
-          <div className="w3-twothird"></div>
-        </div>
-        <footer className="w3-container w3-teal w3-center w3-margin-top">
-          <p>Contact me on social media.</p>
-          <Social links={links} />
-        </footer>
+  const LeftColumn = ({ photo, information, skills, languages }) => (
+    <div className="w3-third">
+      <Photo photo={photo} />
+      <div className="w3-container">
+        <Info information={information} />
+        <Skills skills={skills} />
+        <Languages languages={languages} />
       </div>
     </div>
+  );
+
+  const RightColumn = () => <div className="w3-twothird"></div>;
+
+  const Footer = ({ links }) => (
+    <footer className="w3-container w3-teal w3-center w3-margin-top">
+      <p>Contact me on social media.</p>
+      <Social links={links} />
+    </footer>
+  );
+
+  const PageContainer = ({ photo, information, skills, languages, links }) => (
+    <div className="w3-light-grey">
+      <div id="container" className="w3-content w3-margin-top">
+        <div className="w3-row-padding">
+          <LeftColumn
+            photo={photo}
+            information={information}
+            skills={skills}
+            languages={languages}
+          />
+          <RightColumn />
+        </div>
+        <Footer links={links} />
+      </div>
+    </div>
+  );
+
+  // Usage
+  return (
+    <PageContainer
+      photo={photo}
+      information={information}
+      skills={skills}
+      languages={languages}
+      links={links}
+    />
   );
 }
 

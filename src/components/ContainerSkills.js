@@ -1,18 +1,19 @@
 function ListSkills({ skills }) {
-  const calculateLevel = (level) => {
-    if (level > 80) return "Expert";
-    if (level > 60) return "Proficient";
-    if (level > 40) return "Intermadiate";
-
-    return "Beginner";
-  };
+  const calculateLevel = (level) =>
+    level > 80
+      ? "Expert"
+      : level > 60
+      ? "Proficient"
+      : level > 40
+      ? "Intermediate"
+      : "Beginner";
 
   const width = (level) => {
     return { width: `${level}%` };
   };
 
   const style = {
-    maxHeight: "500px",
+    maxHeight: "62.5vh",
     overflowX: "hidden",
     overflowY: "auto",
   };
