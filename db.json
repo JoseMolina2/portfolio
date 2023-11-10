@@ -114,5 +114,17 @@
       "icon": "twitter",
       "id": 3
     }
+  ],
+  "languages": [
+    {
+      "description": "English",
+      "level": 90,
+      "id": 1
+    },
+    {
+      "description": "Spanish",
+      "level": 100,
+      "id": 2
+    }
   ]
 }

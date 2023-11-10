@@ -5,6 +5,7 @@ import Photo from "./components/ContainerPhoto";
 import Info from "./components/ContainerInformation";
 import Skills from "./components/ContainerSkills";
 import Social from "./components/ContainerSocial";
+import Languages from "./components/ContainerLanguage";
 
 function App() {
   const url = "http://localhost:5000/";
@@ -12,6 +13,7 @@ function App() {
   const [information, setInformation] = useState([]);
   const [skills, setSkills] = useState([]);
   const [links, setLinks] = useState([]);
+  const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     const fetchInformation = async () => {
@@ -32,9 +34,16 @@ function App() {
       setLinks(data);
     };
 
+    const fetchLanguages = async () => {
+      const res = await fetch(`${url}languages`);
+      const data = await res.json();
+      setLanguages(data);
+    };
+
     fetchInformation();
     fetchSkills();
     fetchSocial();
+    fetchLanguages();
   }, [url]);
 
   return (
@@ -49,6 +58,7 @@ function App() {
             <div className="w3-container">
               <Info information={information} />
               <Skills skills={skills} />
+              <Languages languages={languages} />
             </div>
           </div>
           <div className="w3-twothird"></div>
