@@ -97,5 +97,22 @@
       "level": 50,
       "id": 16
     }
+  ],
+  "social_links": [
+    {
+      "link": "https://www.linkedin.com/in/jose-eduardo-m-52209217a/?locale=en_US",
+      "icon": "linkedin",
+      "id": 1
+    },
+    {
+      "link": "https://github.com/JoseMolina2",
+      "icon": "github",
+      "id": 2
+    },
+    {
+      "link": "https://twitter.com/JmmPunk",
+      "icon": "twitter",
+      "id": 3
+    }
   ]
 }

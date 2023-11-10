@@ -4,12 +4,14 @@ import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
 import Info from "./components/ContainerInformation";
 import Skills from "./components/ContainerSkills";
+import Social from "./components/ContainerSocial";
 
 function App() {
   const url = "http://localhost:5000/";
 
   const [information, setInformation] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
     const fetchInformation = async () => {
@@ -24,8 +26,15 @@ function App() {
       setSkills(data);
     };
 
+    const fetchSocial = async () => {
+      const res = await fetch(`${url}social_links`);
+      const data = await res.json();
+      setLinks(data);
+    };
+
     fetchInformation();
     fetchSkills();
+    fetchSocial();
   }, [url]);
 
   return (
@@ -44,7 +53,10 @@ function App() {
           </div>
           <div className="w3-twothird"></div>
         </div>
-        <footer className="w3-container w3-teal w3-center w3-margin-top"></footer>
+        <footer className="w3-container w3-teal w3-center w3-margin-top">
+          <p>Contact me on social media.</p>
+          <Social links={links} />
+        </footer>
       </div>
     </div>
   );
