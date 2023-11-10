@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./App.css";
 import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
@@ -19,7 +19,19 @@ function App() {
     try {
       const res = await fetch(`${url}${endpoint}`);
       const data = await res.json();
-      setData(data);
+      if (data && Array.isArray(data)) {
+        // Check if any object in the array has the "level" property
+        if (data.some((obj) => obj && obj.hasOwnProperty("level"))) {
+          // Sort the array based on the "level" property
+          data.sort((a, b) => b.level - a.level);
+        }
+
+        setData(data);
+      } else {
+        console.error(
+          `Invalid data format for ${endpoint}. Expected an array.`
+        );
+      }
     } catch (error) {
       console.error(`Error fetching ${endpoint}:`, error);
     }

@@ -1,8 +1,4 @@
-import { useMemo } from "react";
-
 function ListSkills({ skills }) {
-  useMemo(() => skills.sort((a, b) => b.level - a.level), [skills]);
-
   const calculateLevel = (level) => {
     if (level > 80) return "Expert";
     if (level > 60) return "Proficient";
