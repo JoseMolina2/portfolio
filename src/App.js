@@ -14,6 +14,7 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [links, setLinks] = useState([]);
   const [languages, setLanguages] = useState([]);
+  const name = "Jose Molina";
 
   const fetchData = async (endpoint, setData) => {
     try {
@@ -54,9 +55,9 @@ function App() {
     fetchAllData();
   }, [url]);
 
-  const LeftColumn = ({ photo, information, skills, languages }) => (
+  const LeftColumn = ({ name, photo, information, skills, languages }) => (
     <div className="w3-third">
-      <Photo photo={photo} />
+      <Photo photo={photo} name={name} />
       <div className="w3-container">
         <Info information={information} />
         <Skills skills={skills} />
@@ -74,12 +75,20 @@ function App() {
     </footer>
   );
 
-  const PageContainer = ({ photo, information, skills, languages, links }) => (
+  const PageContainer = ({
+    name,
+    photo,
+    information,
+    skills,
+    languages,
+    links,
+  }) => (
     <div className="w3-light-grey">
       <div id="container" className="w3-content w3-margin-top">
         <div className="w3-row-padding">
           <LeftColumn
             photo={photo}
+            name={name}
             information={information}
             skills={skills}
             languages={languages}
@@ -94,6 +103,7 @@ function App() {
   // Usage
   return (
     <PageContainer
+      name={name}
       photo={photo}
       information={information}
       skills={skills}

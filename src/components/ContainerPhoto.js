@@ -1,7 +1,7 @@
 import React from "react";
 import "./ContainerPhoto.css";
 
-function ContainerPhoto({ photo }) {
+function ContainerPhoto({ photo, name }) {
   return (
     <div id="image-container" className="w3-display-container w3-theme-l4">
       <img
@@ -10,7 +10,7 @@ function ContainerPhoto({ photo }) {
         alt="Avatar"
       />
       <div className="w3-display-bottomleft w3-container w3-text-black">
-        <h2>Jose Molina</h2>
+        <h2>{name}</h2>
       </div>
     </div>
   );
