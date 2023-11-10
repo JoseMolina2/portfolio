@@ -15,35 +15,31 @@ function App() {
   const [links, setLinks] = useState([]);
   const [languages, setLanguages] = useState([]);
 
+  const fetchData = async (endpoint, setData) => {
+    try {
+      const res = await fetch(`${url}${endpoint}`);
+      const data = await res.json();
+      setData(data);
+    } catch (error) {
+      console.error(`Error fetching ${endpoint}:`, error);
+    }
+  };
+
   useEffect(() => {
-    const fetchInformation = async () => {
-      const res = await fetch(`${url}information`);
-      const data = await res.json();
-      setInformation(data);
+    const fetchAllData = async () => {
+      try {
+        await Promise.all([
+          fetchData("information", setInformation),
+          fetchData("skills", setSkills),
+          fetchData("social_links", setLinks),
+          fetchData("languages", setLanguages),
+        ]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
 
-    const fetchSkills = async () => {
-      const res = await fetch(`${url}skills`);
-      const data = await res.json();
-      setSkills(data);
-    };
-
-    const fetchSocial = async () => {
-      const res = await fetch(`${url}social_links`);
-      const data = await res.json();
-      setLinks(data);
-    };
-
-    const fetchLanguages = async () => {
-      const res = await fetch(`${url}languages`);
-      const data = await res.json();
-      setLanguages(data);
-    };
-
-    fetchInformation();
-    fetchSkills();
-    fetchSocial();
-    fetchLanguages();
+    fetchAllData();
   }, [url]);
 
   return (
