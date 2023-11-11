@@ -6,11 +6,6 @@
       "id": 1
     },
     {
-      "description": "Tegucigalpa, Honduras",
-      "icon": "home",
-      "id": 2
-    },
-    {
       "description": "jmmwork@protonmail.com",
       "icon": "envelope",
       "id": 3
@@ -108,11 +103,6 @@
       "link": "https://github.com/JoseMolina2",
       "icon": "github",
       "id": 2
-    },
-    {
-      "link": "https://twitter.com/JmmPunk",
-      "icon": "twitter",
-      "id": 3
     }
   ],
   "languages": [
@@ -125,6 +115,40 @@
       "description": "Spanish",
       "level": 100,
       "id": 2
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfolio",
+      "link": "https://portfolio-eight-tau-13.vercel.app/",
+      "repository": "https://github.com/JoseMolina2/portfolio",
+      "description": "This is the portfolio you are looking at",
+      "skills": "React, JSON-Server, CSS, W3.css",
+      "id": 1
+    },
+    {
+      "name": "Next Website",
+      "link": "https://next-website-weld.vercel.app/",
+      "repository": "https://github.com/JoseMolina2/Next-Website",
+      "description": "Home Page Template",
+      "skills": "Javascript, HTML, CSS",
+      "id": 2
+    },
+    {
+      "name": "Task Tracker",
+      "link": "https://task-tracker-tau-sepia.vercel.app/",
+      "repository": "https://github.com/JoseMolina2/task-tracker",
+      "description": "Small application to manage tasks",
+      "skills": "React, JSON-Server, CSS, React-Router",
+      "id": 3
+    },
+    {
+      "name": "Test Questions",
+      "link": "https://test-questions-xi.vercel.app/",
+      "repository": "https://github.com/JoseMolina2/test-questions/tree/master",
+      "description": "Small application for answering questions",
+      "skills": "React, CSS",
+      "id": 4
     }
   ]
 }
