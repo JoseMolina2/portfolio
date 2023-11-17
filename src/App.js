@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import photo from "./assets/foto.jpg";
 import Photo from "./components/ContainerPhoto";
@@ -9,7 +9,7 @@ import Projects from "./components/ContainerProjects";
 import Languages from "./components/ContainerLanguage";
 
 function App() {
-  const url = "http://localhost:5000/";
+  const url = process.env.REACT_APP_PORTFOLIO_API_URL;
 
   const [information, setInformation] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -18,26 +18,29 @@ function App() {
   const [projects, setProjects] = useState([]);
   const name = "Jose Molina";
 
-  const fetchData = async (endpoint, setData) => {
-    try {
-      const res = await fetch(`${url}${endpoint}`);
-      const data = await res.json();
-      if (data && Array.isArray(data)) {
-        // Check if any object in the array has the "level" property
-        if (data.some((obj) => obj && obj.hasOwnProperty("level"))) {
-          // Sort the array based on the "level" property
-          data.sort((a, b) => b.level - a.level);
+  const fetchData = useCallback(
+    async (endpoint, setData) => {
+      try {
+        const res = await fetch(`${url}/${endpoint}`);
+        const data = await res.json();
+        if (data && Array.isArray(data)) {
+          // Check if any object in the array has the "level" property
+          if (data.some((obj) => obj && obj.hasOwnProperty("level"))) {
+            // Sort the array based on the "level" property
+            data.sort((a, b) => b.level - a.level);
+          }
+          setData(data);
+        } else {
+          console.error(
+            `Invalid data format for ${endpoint}. Expected an array.`
+          );
         }
-        setData(data);
-      } else {
-        console.error(
-          `Invalid data format for ${endpoint}. Expected an array.`
-        );
+      } catch (error) {
+        console.error(`Error fetching ${endpoint}:`, error);
       }
-    } catch (error) {
-      console.error(`Error fetching ${endpoint}:`, error);
-    }
-  };
+    },
+    [url]
+  );
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -55,7 +58,14 @@ function App() {
     };
 
     fetchAllData();
-  }, [url]);
+  }, [
+    setInformation,
+    setSkills,
+    setLinks,
+    setLanguages,
+    setProjects,
+    fetchData,
+  ]);
 
   const LeftColumn = ({ name, photo, information, skills, languages }) => (
     <div className="w3-third">
